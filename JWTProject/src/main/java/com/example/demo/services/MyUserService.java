@@ -31,7 +31,7 @@ public class MyUserService {
 		user.setPassword(encoder.encode(user.getPassword()));
 		userRepo.save(user);
 		
-		
+		System.out.println("password method executing");
 	}
 
 
