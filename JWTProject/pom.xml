@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.1</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>AdvanceLibrarysProject</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>AdvanceLibrarysProject</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>17</java.version> <!-- Specify the Java version -->
+        <lombok.version>1.18.28</lombok.version> <!-- Latest Lombok version -->
+        <mapstruct.version>1.5.3.Final</mapstruct.version> <!-- Latest MapStruct version -->
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Starter Web (Rest API) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Starter Data JPA (for JPA and Hibernate integration) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Lombok (to generate getters, setters, builders, etc.) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+       	<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+
+        <!-- MapStruct (for object mapping between DTO and Entity) -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <!-- MapStruct Processor (for annotation processing) -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- PostgreSQL Driver (for PostgreSQL database connection) -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Spring Boot DevTools (for faster development) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Boot Starter Test (for unit and integration testing) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.6</version>
+</dependency>		
+
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.12.6</version>
+    <scope>runtime</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.12.6</version>
+    <scope>runtime</scope>
+</dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin to enable annotation processing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!-- Spring Boot Maven Plugin to package and run Spring Boot applications -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
